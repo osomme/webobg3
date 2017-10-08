@@ -1,0 +1,170 @@
+@import "normalize.css";
+html {
+  font-size: calc(0.8em + 0.5vw);
+}
+
+body * {
+  box-sizing: border-box;
+  margin: 0;
+  display: block;
+}
+
+/* Gi elementer fontstørrelse i forhold tilrotelementet med rem */
+h1 {font-size: 3rem;}
+h2 {font-size: 2.2rem;}
+h3 {font-size: 1.8rem;}
+h4 {font-size: 1.2rem;}
+p {font-size: 1rem;}
+
+/* Containere for grid og flex bokser */
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1300px;
+  display: grid;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  grid-template-areas:   "header header header"
+                         "navbar navbar navbar"
+                         "maincontent maincontent aside"
+                         "maincontent2 maincontent2 aside"
+                         "footer footer footer";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 400px 50px 600px 600px 60px;
+}
+
+.maincontent-container1 {
+  grid-area: maincontent;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.maincontent-container2 {
+  grid-area: maincontent2;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Individuelle elementer under */
+
+/* Setter bakgrunnsfargen på siden */
+body {
+  background-color: #e9e9e9;
+}
+
+header {
+  text-align: center;
+  background-image: url("../bilder/testbilde.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-area: header;
+}
+
+#navbar {
+  grid-area: navbar;
+  background-color: white;
+  text-align: center;
+  padding: 0.35em;
+}
+
+#navbar a {
+  display: inline;
+  text-decoration: none;
+  color: black;
+  margin-left: 2em;
+}
+
+#navbar a:hover {
+  border-bottom: 3px solid orange;
+}
+
+#hjemmeKnappLink i:hover {
+  color: green;
+  background-color: white;
+}
+
+#introtext {
+  grid-area: introtext;
+  background-color: black;
+  color: white;
+}
+
+#en {
+  flex: 1;
+  order: 1;
+  background-color: pink;
+}
+
+#to {
+  flex: 1;
+  order: 2;
+  background-color: brown;
+}
+
+#tre {
+  flex: 1;
+  order: 1;
+  grid-area: maincontent2;
+  background-color: orange;
+}
+
+#fire {
+  flex: 1;
+  order: 2;
+  grid-area: maincontent2;
+  background-color: blue;
+}
+
+/* Overskriften i artikkelboksene på hovedsiden */
+div div main h4 {
+  text-align: center;
+  margin: 0;
+  padding-top: 0.2em;
+}
+
+/* Paragrafer inni artikkelboksene på hovedsiden */
+div div main p {
+  padding: 0.7em;
+}
+
+.mainimg {
+  width: 100%;
+  height: 50%;
+}
+
+.bildelink {
+  display: inline;
+}
+
+/* Les mer knappene på hovedsiden */
+
+div div main div {
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+.lesmer {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+}
+
+aside {
+  grid-area: aside;
+  background-color: gold;
+}
+
+footer {
+  text-align: center;
+  grid-area: footer;
+  background-color: green;
+}
+footer p {
+  font-size: 0.8em;
+}
