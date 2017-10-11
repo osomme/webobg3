@@ -9,6 +9,11 @@ body * {
   display: block;
 }
 
+/* Setter bakgrunnsfargen på siden */
+body {
+  background-color: slategray;
+}
+
 /* Gi elementer fontstørrelse i forhold tilrotelementet med rem */
 h1 {font-size: 3rem;}
 h2 {font-size: 2.2rem;}
@@ -27,18 +32,47 @@ p {font-size: 1rem;}
   grid-column-gap: 10px;
   grid-template-areas:   "header header header"
                          "navbar navbar navbar"
-                         "maincontent maincontent aside"
-                         "maincontent2 maincontent2 aside"
+                         "maincontent1 maincontent2 aside"
+                         "maincontent3 maincontent4 aside"
                          "footer footer footer";
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 400px 50px 600px 600px 60px;
+  grid-template-rows: 400px 50px auto auto 60px;
+}
+
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px auto auto auto auto;
+    grid-template-areas:"header"
+                        "navbar"
+                        "maincontent1"
+                        "maincontent2"
+                        "maincontent3"
+                        "maincontent4"
+                        "aside"
+                        "footer";
+  }
+}
+
+#navbar {
+  grid-area: navbar;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
 }
 
 .maincontent-container1 {
-  grid-area: maincontent;
+  grid-area: maincontent1;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  flex-direction: column;
+  background-color: white;
 }
 
 .maincontent-container2 {
@@ -46,14 +80,45 @@ p {font-size: 1rem;}
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  flex-direction: column;
+  background-color: white;
+}
+
+.maincontent-container3 {
+  grid-area: maincontent3;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: white;
+}
+
+.maincontent-container4 {
+  grid-area: maincontent4;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: white;
+}
+
+aside {
+  grid-area: aside;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+footer {
+  align-items:center;
+  justify-content: center;
+  grid-area: footer;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Individuelle elementer under */
-
-/* Setter bakgrunnsfargen på siden */
-body {
-  background-color: #e9e9e9;
-}
 
 header {
   text-align: center;
@@ -63,108 +128,105 @@ header {
   grid-area: header;
 }
 
-#navbar {
-  grid-area: navbar;
-  background-color: white;
-  text-align: center;
-  padding: 0.35em;
-}
-
 #navbar a {
   display: inline;
   text-decoration: none;
   color: black;
-  margin-left: 2em;
+  margin: auto;
+
 }
 
 #navbar a:hover {
   border-bottom: 3px solid orange;
 }
 
-#hjemmeKnappLink i:hover {
-  color: green;
-  background-color: white;
+#navbar a:active {
+  position: relative;
+  bottom: 4px;
 }
 
-#introtext {
-  grid-area: introtext;
-  background-color: black;
-  color: white;
-}
+/* Innholdet til artiklene på hovedsiden */
 
-#en {
-  flex: 1;
-  order: 1;
-  background-color: pink;
-}
-
-#to {
-  flex: 1;
-  order: 2;
-  background-color: brown;
-}
-
-#tre {
-  flex: 1;
-  order: 1;
-  grid-area: maincontent2;
-  background-color: orange;
-}
-
-#fire {
-  flex: 1;
-  order: 2;
-  grid-area: maincontent2;
-  background-color: blue;
-}
 
 /* Overskriften i artikkelboksene på hovedsiden */
-div div main h4 {
-  text-align: center;
-  margin: 0;
-  padding-top: 0.2em;
+article h4 {
+  margin: auto;
+  flex: 0.5;
+  order: 2;
+  padding-top: 0.4em;
 }
 
 /* Paragrafer inni artikkelboksene på hovedsiden */
-div div main p {
-  padding: 0.7em;
+article p {
+  font-size: 0.75em;
+  padding: ;
+  flex: 0.5;
+  margin: auto;
+  order: 3;
 }
 
+
+/* Bildene inne i artiklene på hovedsiden */
 .mainimg {
   width: 100%;
-  height: 50%;
+  height: 100%;
+  flex: 5;
+  order: 1;
+  object-fit: cover;
 }
 
 .bildelink {
-  display: inline;
+  display: inline-flex;
+  height: 50%;
 }
 
 /* Les mer knappene på hovedsiden */
 
-div div main div {
-  text-align: center;
-  position: relative;
-  bottom: 0;
-  left: 0;
+.lesmercontainer {
+  flex: 0.5;
+  order: 4;
+  border-top: 1px solid black;
+  background-color: #333;
 }
 
 .lesmer {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   text-decoration: none;
-  width: 100%;
-}
-
-aside {
-  grid-area: aside;
-  background-color: gold;
-}
-
-footer {
+  height: 100%;
   text-align: center;
-  grid-area: footer;
-  background-color: green;
+  padding: calc(1em);
 }
+
+.lesmer:hover {
+  background-color: #333;
+  color: white;
+}
+
+.lesmer:active {
+  position: relative;
+  bottom: 3px;
+}
+
+/* Sidebaren */
+iframe {
+  flex: 1;
+  order: 1;
+}
+
+ul {
+  flex: 1;
+  order: 2;
+}
+
+aside section a {
+  margin: auto;
+  flex: 1;
+  order: 3;
+}
+
+/* Footer */
 footer p {
   font-size: 0.8em;
+  color: azure
 }
