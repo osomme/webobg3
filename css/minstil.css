@@ -33,28 +33,10 @@ p {font-size: 1rem;}
   grid-template-areas:   "header header header"
                          "navbar navbar navbar"
                          "maincontent1 maincontent2 aside"
-                         "maincontent3 maincontent4 aside"
+                         "maincontent3 maincontent4 empty"
                          "footer footer footer";
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 400px 50px auto auto 60px;
-}
-
-@media only screen and (max-width: 800px) {
-  .wrapper {
-    max-width: 1300px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 150px auto auto auto auto;
-    grid-template-areas:"header"
-                        "navbar"
-                        "maincontent1"
-                        "maincontent2"
-                        "maincontent3"
-                        "maincontent4"
-                        "aside"
-                        "footer";
-  }
+  grid-template-rows: 400px 50px 500px 500px 60px;
 }
 
 #navbar {
@@ -104,10 +86,10 @@ p {font-size: 1rem;}
 
 aside {
   grid-area: aside;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  flex-direction: column;
+}
+
+#underaside {
+  grid-area: empty;
 }
 
 footer {
@@ -148,54 +130,47 @@ header {
 /* Innholdet til artiklene på hovedsiden */
 
 
-/* Overskriften i artikkelboksene på hovedsiden */
-article h4 {
-  margin: auto;
-  flex: 0.5;
-  order: 2;
-  padding-top: 0.4em;
-}
-
-/* Paragrafer inni artikkelboksene på hovedsiden */
-article p {
-  font-size: 0.75em;
-  padding: ;
-  flex: 0.5;
-  margin: auto;
-  order: 3;
-}
-
 
 /* Bildene inne i artiklene på hovedsiden */
 .mainimg {
   width: 100%;
   height: 100%;
-  flex: 5;
-  order: 1;
   object-fit: cover;
 }
 
 .bildelink {
   display: inline-flex;
-  height: 50%;
+  height: 65%;
+}
+
+/* Overskriften i artikkelboksene på hovedsiden */
+article h4 {
+  margin: 0 auto;
+  padding: 0.4rem;
+  text-align: center;
+}
+
+/* Paragrafer inni artikkelboksene på hovedsiden */
+article p {
+  font-size: 0.75em;
+  margin: 0 auto;
+  position: relative;
+  bottom: 1rem;
+  padding-top: 1rem;
+  text-align: center;
 }
 
 /* Les mer knappene på hovedsiden */
 
-.lesmercontainer {
-  flex: 0.5;
-  order: 4;
-  border-top: 1px solid black;
-  background-color: #333;
-}
-
 .lesmer {
-  background-color: white;
   color: black;
   text-decoration: none;
-  height: 100%;
   text-align: center;
-  padding: calc(1em);
+  padding: 0.25rem;
+  margin: auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 25%;
 }
 
 .lesmer:hover {
@@ -204,29 +179,54 @@ article p {
 }
 
 .lesmer:active {
-  position: relative;
-  bottom: 3px;
+  background-color: orange;
+  color: black;
 }
 
 /* Sidebaren */
 iframe {
-  flex: 1;
-  order: 1;
+
 }
 
 ul {
-  flex: 1;
-  order: 2;
+
 }
 
 aside section a {
-  margin: auto;
-  flex: 1;
-  order: 3;
+
 }
 
 /* Footer */
 footer p {
   font-size: 0.8em;
   color: azure
+}
+
+/* media queries */
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-rows: 150px 40px repeat(6, auto);
+    grid-template-areas:"header"
+                        "navbar"
+                        "maincontent1"
+                        "maincontent2"
+                        "maincontent3"
+                        "maincontent4"
+                        "aside"
+                        "footer";
+  }
+  main article { width: 100%;}
+
+  article p { font-size: 1.25rem;}
+  
+  article h4 { font-size: 2rem;}
+  
+  article { border: 1px solid black;}
 }

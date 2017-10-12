@@ -1,0 +1,232 @@
+@import "normalize.css";
+html {
+  font-size: calc(0.8em + 0.5vw);
+}
+
+body * {
+  box-sizing: border-box;
+  margin: 0;
+  display: block;
+}
+
+/* Setter bakgrunnsfargen på siden */
+body {
+  background-color: slategray;
+}
+
+/* Gi elementer fontstørrelse i forhold tilrotelementet med rem */
+h1 {font-size: 3rem;}
+h2 {font-size: 2.2rem;}
+h3 {font-size: 1.8rem;}
+h4 {font-size: 1.2rem;}
+p {font-size: 1rem;}
+
+/* Containere for grid og flex bokser */
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1300px;
+  display: grid;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  grid-template-areas:   "header header header"
+                         "navbar navbar navbar"
+                         "maincontent1 maincontent2 aside"
+                         "maincontent3 maincontent4 aside"
+                         "footer footer footer";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 400px 50px auto auto 60px;
+}
+
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px auto auto auto auto;
+    grid-template-areas:"header"
+                        "navbar"
+                        "maincontent1"
+                        "maincontent2"
+                        "maincontent3"
+                        "maincontent4"
+                        "aside"
+                        "footer";
+  }
+}
+
+#navbar {
+  grid-area: navbar;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+
+.maincontent-container1 {
+  grid-area: maincontent1;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: white;
+}
+
+.maincontent-container2 {
+  grid-area: maincontent2;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: white;
+}
+
+.maincontent-container3 {
+  grid-area: maincontent3;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: white;
+}
+
+.maincontent-container4 {
+  grid-area: maincontent4;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: white;
+}
+
+aside {
+  grid-area: aside;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+footer {
+  align-items:center;
+  justify-content: center;
+  grid-area: footer;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Individuelle elementer under */
+
+header {
+  text-align: center;
+  background-image: url("../bilder/testbilde.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-area: header;
+}
+
+#navbar a {
+  display: inline;
+  text-decoration: none;
+  color: black;
+  margin: auto;
+
+}
+
+#navbar a:hover {
+  border-bottom: 3px solid orange;
+}
+
+#navbar a:active {
+  position: relative;
+  bottom: 4px;
+}
+
+/* Innholdet til artiklene på hovedsiden */
+
+
+/* Overskriften i artikkelboksene på hovedsiden */
+article h4 {
+  margin: auto;
+  flex: 0.5;
+  order: 2;
+  padding-top: 0.4em;
+}
+
+/* Paragrafer inni artikkelboksene på hovedsiden */
+article p {
+  font-size: 0.75em;
+  padding: ;
+  flex: 0.5;
+  margin: auto;
+  order: 3;
+}
+
+
+/* Bildene inne i artiklene på hovedsiden */
+.mainimg {
+  width: 100%;
+  height: 100%;
+  flex: 5;
+  order: 1;
+  object-fit: cover;
+}
+
+.bildelink {
+  display: inline-flex;
+  height: 50%;
+}
+
+/* Les mer knappene på hovedsiden */
+
+.lesmercontainer {
+  flex: 0.5;
+  order: 4;
+  border-top: 1px solid black;
+  background-color: #333;
+}
+
+.lesmer {
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  height: 100%;
+  text-align: center;
+  padding: calc(1em);
+}
+
+.lesmer:hover {
+  background-color: #333;
+  color: white;
+}
+
+.lesmer:active {
+  position: relative;
+  bottom: 3px;
+}
+
+/* Sidebaren */
+iframe {
+  flex: 1;
+  order: 1;
+}
+
+ul {
+  flex: 1;
+  order: 2;
+}
+
+aside section a {
+  margin: auto;
+  flex: 1;
+  order: 3;
+}
+
+/* Footer */
+footer p {
+  font-size: 0.8em;
+  color: azure
+}
