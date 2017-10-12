@@ -1,4 +1,9 @@
 @import "normalize.css";
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
 html {
   font-size: calc(0.8em + 0.5vw);
 }
@@ -15,11 +20,20 @@ body {
 }
 
 /* Gi elementer fontstørrelse i forhold tilrotelementet med rem */
-h1 {font-size: 3rem;}
+h1 {
+  font-size: 3rem;
+  font-family: 'Abril Fatface', cursive;
+}
 h2 {font-size: 2.2rem;}
 h3 {font-size: 1.8rem;}
-h4 {font-size: 1.2rem;}
-p {font-size: 1rem;}
+h4 {
+  font-size: 1.2rem;
+  font-family: 'Fjalla One', sans-serif;
+}
+p {
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+}
 
 /* Containere for grid og flex bokser */
 
@@ -115,7 +129,7 @@ header {
   text-decoration: none;
   color: black;
   margin: auto;
-
+  border: 3px solid white;
 }
 
 #navbar a:hover {
