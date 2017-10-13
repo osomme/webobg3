@@ -16,7 +16,7 @@ body * {
 
 /* Setter bakgrunnsfargen på siden */
 body {
-  background-color: slategray;
+  background-color: #333;
 }
 
 /* Gi elementer fontstørrelse i forhold tilrotelementet med rem */
@@ -46,11 +46,20 @@ p {
   grid-column-gap: 10px;
   grid-template-areas:   "header header header"
                          "navbar navbar navbar"
-                         "maincontent1 maincontent2 aside"
-                         "maincontent3 maincontent4 empty"
+                         "maincontent1 maincontent1 aside"
+                         "maincontent2 maincontent2 none"
                          "footer footer footer";
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 400px 50px 500px 500px 60px;
+  grid-template-rows: 400px 50px 425px 425px 60px;
+}
+
+
+header {
+  text-align: center;
+  background-image: url("../bilder/testbilde.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-area: header;
 }
 
 #navbar {
@@ -60,6 +69,7 @@ p {
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
+  border: 1px solid black;
 }
 
 .maincontent-container1 {
@@ -67,8 +77,8 @@ p {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  flex-direction: column;
   background-color: white;
+
 }
 
 .maincontent-container2 {
@@ -76,34 +86,16 @@ p {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  flex-direction: column;
   background-color: white;
-}
 
-.maincontent-container3 {
-  grid-area: maincontent3;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  flex-direction: column;
-  background-color: white;
-}
-
-.maincontent-container4 {
-  grid-area: maincontent4;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  flex-direction: column;
-  background-color: white;
 }
 
 aside {
   grid-area: aside;
-}
-
-#underaside {
-  grid-area: empty;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
 }
 
 footer {
@@ -114,16 +106,21 @@ footer {
   flex-wrap: wrap;
 }
 
-/* Individuelle elementer under */
-
-header {
-  text-align: center;
-  background-image: url("../bilder/testbilde.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  grid-area: header;
+.artikkel1 {
+  flex: 1;
+  order: 1;
+  border-right: 1px solid black;
+  background-color: white;
 }
 
+.artikkel2 {
+  flex: 1;
+  order: 2;
+  background-color: white;
+}
+
+
+/* Navigasjonsbaren */
 #navbar a {
   display: inline;
   text-decoration: none;
@@ -133,6 +130,7 @@ header {
 }
 
 #navbar a:hover {
+  border-top: 3px solid orange;
   border-bottom: 3px solid orange;
 }
 
@@ -148,29 +146,26 @@ header {
 /* Bildene inne i artiklene på hovedsiden */
 .mainimg {
   width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
 .bildelink {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  height: 65%;
+  height: 60%;
 }
 
 /* Overskriften i artikkelboksene på hovedsiden */
 article h4 {
-  margin: 0 auto;
-  padding: 0.4rem;
+  margin: auto;
   text-align: center;
 }
 
 /* Paragrafer inni artikkelboksene på hovedsiden */
 article p {
-  font-size: 0.75em;
-  margin: 0 auto;
-  position: relative;
-  bottom: 1rem;
-  padding-top: 1rem;
+  font-size: 0.75rem;
+  margin: 6% auto;
   text-align: center;
 }
 
@@ -180,11 +175,12 @@ article p {
   color: black;
   text-decoration: none;
   text-align: center;
+  font-size: 0.75rem;
   padding: 0.25rem;
   margin: auto;
   border: 2px solid black;
   border-radius: 5px;
-  width: 25%;
+  width: 30%;
 }
 
 .lesmer:hover {
@@ -199,15 +195,53 @@ article p {
 
 /* Sidebaren */
 iframe {
-
+  width: 100%;
 }
 
 ul {
+  list-style-type: none;
+  padding: 0;
+}
 
+aside section p {
+  font-size: 0.75rem;
+  margin-bottom: 0.2rem;
 }
 
 aside section a {
+  margin-top: 0.1rem;
+  text-decoration-line: none;
+  color: blue;
+}
 
+aside section ul li a:hover {
+  text-decoration-line: underline;
+}
+
+aside section ul li a:visited {
+  color: purple;
+}
+
+.googlesok a {
+  text-decoration-line: none;
+  border: 1px solid black;
+  width: 50%;
+  height: 1.5rem;
+  padding: 0.3rem;
+  margin: 0 auto;
+  background-color: blue;
+  color: white;
+  font-size: 0.7rem;
+  margin-top: 4%;
+}
+
+.googlesok a:hover {
+  background-color: #008000;
+}
+
+.googlesok p {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
 }
 
 /* Footer */
@@ -216,31 +250,109 @@ footer p {
   color: azure
 }
 
+/* Mobilnav */
+nav#ikon {
+  display: none;
+}
+
+#mobilnav {
+  display: none;
+}
+
+
 /* media queries */
 @media only screen and (max-width: 800px) {
   .wrapper {
     width: 100%;
-    max-width: 1300px;
+    max-width: 800px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    grid-template-rows: 150px 40px repeat(6, auto);
+    grid-template-rows: 200px 40px repeat(2, auto) 400px 50px;
     grid-template-areas:"header"
-                        "navbar"
+                        "ikon"
                         "maincontent1"
                         "maincontent2"
-                        "maincontent3"
-                        "maincontent4"
                         "aside"
                         "footer";
   }
-  main article { width: 100%;}
+  nav#navbar {
+    display: none;
+  }
+
+  nav#ikon {
+    position: sticky;
+    top: 0;
+    display: block;
+    color: black;
+    width: 100%;
+    background-color: white;
+    opacity: 0.9;
+    text-align: center;
+  }
+
+  nav#ikon i {
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+
+  #mobilnav {
+    position: relative;
+    height: calc(65vh);
+    left: 0;
+    top: -4px;
+    background-color: #333;
+    color: white;
+    width: 75%;
+    font-size: 3rem;
+    opacity: 1;
+    margin: 0 auto;
+    border: 5px solid orange;
+    
+  }
+  
+  #mobilnav a {
+    margin-top: 1rem;
+    color: white;
+    text-decoration-line: none;   
+  }
+  
+  #mobilnav a:visited {
+    color: purple;
+  }
 
   article p { font-size: 1.25rem;}
-  
+
   article h4 { font-size: 2rem;}
-  
-  article { border: 1px solid black;}
+
+  article {
+    border: 1px solid black;
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  .maincontent-container1 {
+    flex-direction: column;
+    background-color: #333;
+  }
+  .maincontent-container2 {
+    flex-direction: column;
+    background-color: #333;
+  }
+  .googlesok a {
+    margin-top: 1rem;
+  }
+  .linker ul li a {
+    margin-top: 0.75rem;
+  }
+
+  .lesmer {
+    width: 50%;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+
 }

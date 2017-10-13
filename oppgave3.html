@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 3</title>
+    <script>
+      window.onload = utfor;
+
+      var navn = ["Per", "Olav", "Hans", "Pia", "Kari", "Nils", "Line", "Magnus", "Tom", "Ole"];
+
+      function utfor() {
+        for (i = 0; i < 3; i++) {
+          var res = Math.floor(Math.random()* navn.length);
+          if (i < 2) {
+            document.getElementById("utskrift").innerHTML += navn[res] + ", ";
+          }
+        }
+        // For å ikke ha komma etter siste navn:
+        document.getElementById("utskrift").innerHTML += " " + navn[res];
+      }
+    </script>
+  </head>
+  <body>
+    <p id="utskrift"></p>
+  </body>
+</html>
