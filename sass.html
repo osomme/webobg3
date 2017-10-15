@@ -35,25 +35,39 @@
         <li><a href="sass.html">Sass</a></li>
       </ul>
     </nav>
-    <main id="komigangoverskrift">
-      <h2>Kom i gang med SEO</h2>
+    <main id="sassoverskrift">
+      <h2>Sass</h2>
     </main>
     <main class="maincontent-container2">
       <article class="artikkel1">
-        <p>SEO står for <span>Search</span> <span>Engine</span> <span>Optimization</span>.
-          Formålet med SEO er å bruke visse metoder for å gjøre et nettsted mer synlig på søkemotorer.
-          Nettstedet blir mer synlig når brukere av søkemotorer ser ditt nettsted
-          høyere i resultatlista over søkene deres. I tillegg er det viktig at
-          brukere får resultater som er relevante for det de søker etter. På den måten
-          får bedrifter lokket til seg kunder som er interesserte i det bedriften selger.
+        <p>
+          Sass er et språk som gjør det lettere å skrive CSS-kode. Sass har muligheter
+          som likner mer på et programmeringsspråk. Man kan lage blant annet lage
+          variabler som gjør det lettere å gjenbruke en verdi flere plasser. Hvis man skal
+          bruke samme farge på forskjellige ting, vil variabler gjøre ting lettere.
+          I stedet for å endre på hvert eneste CSS-regel som bruker fargen, trenger du
+          bare å endre på verdien til variablen. Man kan også bruke "mixins", som
+          ligner funksjoner i JavaScript.
+          Du kan også importere andre CSS filer som
+          inneholder ofte brukte stilsett. Disse kalles partials. I vanlig
+          CSS kan man også importere eksterne stilark, men da må disse eksterne stilarkene
+          lastes hver for seg.
         </p>
       </article>
       <article class="artikkel2">
-        <p>For webutviklere er det svært viktigt å lage et nettsted som brukere kan finne fram
-          til via Google og andre søkemotorer. Hvis en bedrift lager et nettsted eller en butikk
-          som ingen noen gang når fram til, så er alt bryet ved å utvikle nettstedet bortkastet.
-          Hvis du ikke gjør SEO riktig kan brukere få feil resultater fra søkemotorer. Det fører til
-          at brukerene som besøker nettstedet egentlig ikke er interessert i innholdet på siden.
+        <p>
+          Ved hjelp av Sass lager man flere seperate stilark
+          som kombineres til ett stilark via en compiler. På denne måten lastes siden
+          bittelitt raskere.
+        </p>
+        <p>
+          Hvis jeg skulle brukt Sass i dette prosjektet ville jeg delt CSS-en inn
+          i tre partials. En partial for alle elementene som er på absolutt alle sidene
+          (header, nav, aside, footer), og to stilark for særegne elementer på
+          artikkel- og hovedsidene. Nå bruker jeg to stilark, en for hovedsiden og
+          en for artiklene. Det ville ikke vært nødvendig hvis jeg brukte Sass.
+          Valgte å ikke bruke Sass da jeg allerede var nesten ferdig med å kode
+          nettstedet da jeg begynte å lære Sass.
         </p>
       </article>
     </main>

@@ -50,9 +50,8 @@ p {
                          "maincontent2 maincontent2 none"
                          "footer footer footer";
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 400px 50px 450px 450px 60px;
+  grid-template-rows: 400px 50px 450px auto 60px;
 }
-
 
 header {
   text-align: center;
@@ -72,13 +71,55 @@ header {
   border: 1px solid black;
 }
 
-.maincontent-container1 {
+#komigangoverskrift {
   grid-area: maincontent1;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: white;
+  background-image: url("../bilder/googleliten.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
+#analyseoverskrfit {
+  grid-area: maincontent1;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-image: url("../bilder/analyseliten.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#kodeoverskrift {
+  grid-area: maincontent1;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-image: url("../bilder/kodeliten.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#innholdoverskrift {
+  grid-area: maincontent1;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-image: url("../bilder/contentliten.jpg");
+  background-position:  center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#sassoverskrift {
+  grid-area: maincontent1;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-image: url("../bilder/cssliten.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .maincontent-container2 {
@@ -87,7 +128,15 @@ header {
   justify-content: space-between;
   flex-wrap: wrap;
   background-color: white;
+}
 
+#analysecontainer {
+  grid-area: maincontent2;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: white;
 }
 
 aside {
@@ -109,7 +158,6 @@ footer {
 .artikkel1 {
   flex: 1;
   order: 1;
-  border-right: 1px solid black;
   background-color: white;
 }
 
@@ -139,22 +187,60 @@ footer {
   bottom: 4px;
 }
 
-/* Innholdet til artiklene på hovedsiden */
 
-
-
-/* Bildene inne i artiklene på hovedsiden */
-.mainimg {
-  width: 100%;
-  object-fit: cover;
+/* Artikkelsidene */
+div main h2 {
+  margin: 0 auto;
+  position: relative;
+  top: 14rem;
+  border: 1px solid black;
+  height: 3rem;
+  width: 23rem;
+  text-align: center;
+  color: white;
+  background-color: #333;
 }
 
-.bildelink {
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  height: 60%;
+#analyse p {
+  margin: 0;
+  margin-top: 15px;
 }
+
+pre {
+  font-size: 0.75rem;
+  padding-right: 0.5rem;
+}
+
+code {
+  background-color: black;
+  color: orange;
+  padding-left: 0.5rem;
+}
+
+span {
+  display: inline-block;
+}
+
+code#analysekode {
+  font-size: 0.45rem;
+}
+
+pre#analysepre {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+main article p span::first-letter {
+  font-weight: bolder;
+}
+
+p#kodeparagraf {
+  margin: 0;
+  margin-top: 6%;
+  margin-bottom: 2%;
+  padding: 0;
+}
+
 
 /* Overskriften i artikkelboksene på hovedsiden */
 article h4 {
@@ -166,11 +252,12 @@ article h4 {
 article p {
   font-size: 0.75rem;
   margin: 6% auto;
-  text-align: center;
+  text-align: justify;
+  padding: 0.5rem;
+  padding-top: 0.1rem;
 }
 
 /* Les mer knappene på hovedsiden */
-
 .lesmer {
   color: black;
   text-decoration: none;
@@ -273,7 +360,7 @@ nav#ikon {
     grid-template-columns: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    grid-template-rows: 200px 40px repeat(2, auto) 400px 50px;
+    grid-template-rows: 200px 40px 400px auto 400px 50px;
     grid-template-areas:"header"
                         "ikon"
                         "maincontent1"
@@ -297,7 +384,7 @@ nav#ikon {
   }
 
   nav#ikon i {
-    padding: 0.5rem;
+    padding: 0.35rem;
     font-size: 2rem;
   }
 
@@ -313,7 +400,7 @@ nav#ikon {
     opacity: 1;
     margin: 0 auto;
     border: 5px solid orange;
-
+    z-index: 9999;
   }
 
   #mobilnav a {
@@ -326,6 +413,14 @@ nav#ikon {
     color: purple;
   }
 
+  body {
+    background-color: white;
+  }
+
+  h2 {
+    z-index: 0;
+  }
+
   article p { font-size: 1.25rem;}
 
   article h4 { font-size: 2rem;}
@@ -333,20 +428,23 @@ nav#ikon {
   article {
     border: 1px solid black;
     width: 100%;
-    margin-bottom: 25px;
   }
 
   .maincontent-container1 {
     flex-direction: column;
     background-color: #333;
   }
+  
   .maincontent-container2 {
     flex-direction: column;
     background-color: #333;
+    margin-bottom: 1rem;
   }
+
   .googlesok a {
     margin-top: 1rem;
   }
+
   .linker ul li a {
     margin-top: 0.75rem;
   }
@@ -357,5 +455,7 @@ nav#ikon {
     font-size: 1.5rem;
   }
 
-
+  footer {
+    background-color: #333;
+  }
 }
