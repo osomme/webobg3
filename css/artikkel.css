@@ -189,7 +189,7 @@ footer {
 
 
 /* Artikkelsidene */
-div main h2 {
+div header h2 {
   margin: 0 auto;
   position: relative;
   top: 14rem;
@@ -214,7 +214,9 @@ pre {
 code {
   background-color: black;
   color: orange;
+  padding: 0.3rem;
   padding-left: 0.5rem;
+  width: 95%;
 }
 
 span {
@@ -222,7 +224,7 @@ span {
 }
 
 code#analysekode {
-  font-size: 0.45rem;
+  font-size: 0.55rem;
 }
 
 pre#analysepre {
@@ -283,6 +285,7 @@ article p {
 /* Sidebaren */
 iframe {
   width: 100%;
+  border: 0;
 }
 
 ul {
@@ -434,7 +437,7 @@ nav#ikon {
     flex-direction: column;
     background-color: #333;
   }
-  
+
   .maincontent-container2 {
     flex-direction: column;
     background-color: #333;
