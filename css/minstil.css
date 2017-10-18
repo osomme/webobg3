@@ -46,16 +46,16 @@ p {
   grid-column-gap: 10px;
   grid-template-areas:   "header header header"
                          "navbar navbar navbar"
-                         "maincontent1 maincontent1 aside"
-                         "maincontent2 maincontent2 none"
+                         "maincontent maincontent aside"
+                         "maincontent maincontent none"
                          "footer footer footer";
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 400px 50px 450px 450px 60px;
+  grid-template-rows: 400px 50px auto auto 60px;
 }
 
 
 main {
-  max-width: 100%;
+  grid-area: maincontent;
 }
 
 header {
@@ -77,7 +77,6 @@ header {
 }
 
 .maincontent-container1 {
-  grid-area: maincontent1;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -85,7 +84,6 @@ header {
 }
 
 .maincontent-container2 {
-  grid-area: maincontent2;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -276,11 +274,10 @@ nav#ikon {
     grid-template-columns: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    grid-template-rows: 200px 40px repeat(2, auto) 400px 50px;
+    grid-template-rows: 200px 40px repeat(2, auto) 50px;
     grid-template-areas:"header"
                         "ikon"
-                        "maincontent1"
-                        "maincontent2"
+                        "maincontent"
                         "aside"
                         "footer";
   }

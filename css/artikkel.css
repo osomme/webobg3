@@ -199,16 +199,12 @@ div header h2 {
   text-align: center;
   color: white;
   background-color: #333;
+  z-index: 0;
 }
 
 #analyse p {
   margin: 0;
   margin-top: 15px;
-}
-
-pre {
-  font-size: 0.75rem;
-  padding-right: 0.5rem;
 }
 
 code {
@@ -243,14 +239,7 @@ p#kodeparagraf {
   padding: 0;
 }
 
-
-/* Overskriften i artikkelboksene på hovedsiden */
-article h4 {
-  margin: auto;
-  text-align: center;
-}
-
-/* Paragrafer inni artikkelboksene på hovedsiden */
+/* Paragrafer inni artiklene */
 article p {
   font-size: 0.75rem;
   margin: 6% auto;
@@ -352,7 +341,6 @@ nav#ikon {
   display: none;
 }
 
-
 /* media queries */
 @media only screen and (max-width: 800px) {
   .wrapper {
@@ -384,6 +372,7 @@ nav#ikon {
     background-color: white;
     opacity: 0.9;
     text-align: center;
+    z-index: 9998;
   }
 
   nav#ikon i {
