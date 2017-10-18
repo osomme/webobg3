@@ -50,7 +50,7 @@ p {
                          "maincontent maincontent none"
                          "footer footer footer";
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 400px 50px auto auto 60px;
+  grid-template-rows: 400px 50px 450px auto 60px;
 }
 
 
@@ -153,7 +153,7 @@ footer {
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  height: 60%;
+  height: 75%;
 }
 
 /* Overskriften i artikkelboksene på hovedsiden */
